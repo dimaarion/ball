@@ -25,6 +25,8 @@ player = new Player();
 walls = new Walls({name:"platform",world:this.world});
 
 preload = (p5) => {
+   this.player.frame = 6;
+   this.player.image =  "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/JJrL-swim_to_right_sheet.png";
    this.player.img(p5);
   };
 

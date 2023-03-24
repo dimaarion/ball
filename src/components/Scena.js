@@ -1,5 +1,7 @@
 export default class Scena {
   scena = {};
+  x = 0;
+  y = 0;
   scenaWidth = 0;
   scenaHeigiht = 0;
   scenaSize = 0;
@@ -9,6 +11,9 @@ export default class Scena {
     this.scenaHeigiht = props.height * props.tileheight;
     this.scenaSize =
       props.height * props.tileheight + (props.height * props.tileheight) / 8;
+    this.x = props.x;
+    this.y = props.y;
+    
   }
   getObjects(name) {
     let layers = this.scena.layers;

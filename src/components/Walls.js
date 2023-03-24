@@ -22,9 +22,9 @@ export default class Walls {
 
   view(p5) {
     p5.rectMode(p5.CENTER);
-    p5.fill(0);
-    this.body.map((b) =>
-      p5.rect(b.position.x, b.position.y, b.width, b.height)
-    );
+    //  p5.fill(0);
+    // this.body.map((b) =>
+    //   p5.rect(b.position.x, b.position.y, b.width, b.height)
+    //  );
   }
 }

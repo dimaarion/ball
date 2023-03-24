@@ -60,6 +60,9 @@ export default class Animate {
     this.animated = false;
     this.img = this.p5.loadImage(this.name);
   }
+  animateArray(arr = []) {
+    this.img = arr.map((img) => this.p5.loadImage(img));
+  }
 
   setupAnimate() {
     if (this.animated) {
@@ -136,8 +139,8 @@ export default class Animate {
     }
   }
 
-  getImage(x, y) {
-    this.p5.image(this.img, 0, 0);
+  getImage(x,y,w,h,i) {
+    this.p5.image(this.img[i], x, y,w,h);
   }
 
   spriteRect(w, h) {
@@ -192,5 +195,3 @@ export default class Animate {
     }
   }
 }
-
-

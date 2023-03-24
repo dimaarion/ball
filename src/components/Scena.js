@@ -13,7 +13,6 @@ export default class Scena {
       props.height * props.tileheight + (props.height * props.tileheight) / 8;
     this.x = props.x;
     this.y = props.y;
-    
   }
   getObjects(name) {
     let layers = this.scena.layers;
@@ -38,6 +37,14 @@ export default class Scena {
     return this.scena.layers
       .filter((f, i) => f.name === name)
       .map((x, i) => x)[0].data;
+  }
+
+  getProperties(name) {
+    if (this.getObject("bg2").properties) {
+      return this.getObject("bg2").properties.map((pos) => pos);
+    } else {
+      return [];
+    }
   }
 
   procentIn(n, p) {

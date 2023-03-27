@@ -9,7 +9,8 @@ export default class Inventory {
   clY = 16;
   clR = 5;
   s = {};
-  hit = false;
+  hit = 0;
+  mouses = {};
   collide = new Collide();
   create(scena, action) {
     this.s = scena;
@@ -36,12 +37,12 @@ export default class Inventory {
       this.clY - this.clR / 2,
       this.clR,
       this.clR
-    );
-    console.log(this.clX);*/
+    );*/
+    //  console.log(e);
   }
 
   view(p5) {
-    if (this.hit === false) {
+    if (this.hit === 0) {
       p5.fill(200);
       p5.rect(this.x, this.y, this.width, this.height);
       this.close(p5);

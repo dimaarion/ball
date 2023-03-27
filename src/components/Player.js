@@ -8,6 +8,7 @@ export default class Player {
   player = {};
   body = {};
   scena = {};
+  m = {};
   x = 100;
   y = 0;
   width = 50;

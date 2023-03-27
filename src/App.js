@@ -103,10 +103,7 @@ export default class App extends Component {
       this.player.down = 0;
     }
   };
-  mousePressed(e) {
-    console.log(e);
-    this.inventory.hit = true;
-  }
+
   render() {
     return (
       <div
@@ -122,7 +119,6 @@ export default class App extends Component {
           preload={this.preload}
           keyPressed={this.keyPressed}
           keyReleased={this.keyReleased}
-          mousePressed={this.mousePressed}
         />
       </div>
     );

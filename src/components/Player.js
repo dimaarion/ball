@@ -27,19 +27,22 @@ export default class Player {
   }
 
   create(props) {
+    //  localStorage.setItem("playerY", "20");
+    //  localStorage.setItem("playerX", "1200");
+    console.log(localStorage);
     this.scena = new Scena(props.scena);
     this.body = this.scena.getObjects("player")[0];
     this.x = this.scena.size(this.body.x + this.body.width / 2);
+    this.y = this.scena.size(this.body.y + this.body.width / 2);
     if (localStorage.getItem("playerX")) {
-      this.x = this.scena.size(
-        Number.parseInt(localStorage.getItem("playerX"))
-      );
+      this.x = Number.parseInt(localStorage.getItem("playerX")) / 4;
+      this.y = Number.parseInt(localStorage.getItem("playerY")) / 4;
     } else {
-      this.x = this.scena.size(this.body.x + this.body.width / 2);
+      this.y = this.scena.size(this.body.y + this.body.width / 2);
     }
     this.player = Matter.Bodies.circle(
       this.x,
-      this.scena.size(this.body.y + this.body.width / 2),
+      this.y,
       this.scena.size(this.body.width / 2)
     );
     Matter.World.add(props.world, this.player);

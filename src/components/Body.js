@@ -1,6 +1,7 @@
 import Matter from "matter-js";
 import Scena from "./Scena";
 export default class Body {
+  count = 0;
   createRectange(props) {
     let scena = new Scena(props.scena);
     return scena.getObjects(props.name).map((b) =>
@@ -16,5 +17,14 @@ export default class Body {
         }
       )
     );
+  }
+
+  timer(n) {
+    n = n * 1000;
+    if (this.count > n) {
+      this.count = 0;
+    }
+    this.count++;
+    return Math.round(this.count / 1000);
   }
 }

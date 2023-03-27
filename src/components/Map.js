@@ -32,8 +32,6 @@ export default class Map {
       this.scena.getProperties("bg7"),
       this.scena.getProperties("bg8"),
     ];
-
-    this.position.map((bg) => console.log(bg));
   }
 
   view(p5) {
@@ -46,42 +44,5 @@ export default class Map {
         i
       )
     );
-
-    /*
-    p5.image(
-      this.animate.getImage(),
-      this.position[0].x,
-      this.position[0].y,
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht)
-    );
-    p5.image(
-      this.animate.getImage(),
-      this.position[0].x - this.scena.size(this.scena.scenaWidth),
-      this.position[0].y,
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht)
-    );
-    p5.image(
-      this.animate.getImage(),
-      this.position[0].x + this.scena.size(this.scena.scenaWidth),
-      this.position[0].y,
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht)
-    );
-    p5.image(
-      this.animate.sprite(),
-      this.position[0].x,
-      this.position[0].y + this.scena.size(this.scena.scenaHeigiht),
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht)
-    );
-    p5.image(
-      this.animate.sprite(),
-      this.position[0].x,
-      this.position[0].y + this.scena.size(this.scena.scenaHeigiht),
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht)
-    );*/
   }
 }

@@ -7,6 +7,7 @@ import Walls from "./components/Walls";
 import scena1 from "./scena/scena.json";
 import Scena from "./components/Scena";
 import Collide from "./components/Collide";
+import Body from "./components/Body";
 import Map from "./components/Map";
 export default class App extends Component {
   Engine = Matter.Engine;
@@ -24,6 +25,7 @@ export default class App extends Component {
   collide = new Collide();
   scena = new Scena(scena1);
   player = new Player();
+  body = new Body();
   map = new Map();
   walls = new Walls({ name: "platform", world: this.world });
 

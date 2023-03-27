@@ -1,14 +1,16 @@
 import Matter from "matter-js";
 import Scena from "./Scena";
+import Body from "./Body";
 import Animate from "./Animate";
 export default class Player {
   player = {};
   body = {};
   scena = {};
-  x = 200;
+  x = 100;
   y = 0;
-  h = 50;
-  w = 50;
+  width = 50;
+  height = 50;
+  radius = 50;
   left = 0;
   right = 0;
   mass = 1;
@@ -18,6 +20,7 @@ export default class Player {
     "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/lvmz-money2.png";
   frame = 1;
   animate = new Animate();
+  b = new Body();
   img(p5) {
     this.animate.setup(p5);
     this.animate.animateD(this.image, this.frame);
@@ -26,8 +29,16 @@ export default class Player {
   create(props) {
     this.scena = new Scena(props.scena);
     this.body = this.scena.getObjects("player")[0];
+    this.x = this.scena.size(this.body.x + this.body.width / 2);
+    if (localStorage.getItem("playerX")) {
+      this.x = this.scena.size(
+        Number.parseInt(localStorage.getItem("playerX"))
+      );
+    } else {
+      this.x = this.scena.size(this.body.x + this.body.width / 2);
+    }
     this.player = Matter.Bodies.circle(
-      this.scena.size(this.body.x + this.body.width / 2),
+      this.x,
       this.scena.size(this.body.y + this.body.width / 2),
       this.scena.size(this.body.width / 2)
     );
@@ -42,6 +53,11 @@ export default class Player {
   }
 
   view(p5) {
+    if (this.b.timer(4) > 3) {
+      localStorage.setItem("playerX", this.player.position.x);
+      localStorage.setItem("playerY", this.player.position.y);
+    }
+
     p5.fill(110);
     p5.ellipseMode(p5.RADIUS);
     p5.ellipse(

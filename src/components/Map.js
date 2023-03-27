@@ -28,6 +28,9 @@ export default class Map {
       this.scena.getProperties("bg3"),
       this.scena.getProperties("bg4"),
       this.scena.getProperties("bg5"),
+      this.scena.getProperties("bg6"),
+      this.scena.getProperties("bg7"),
+      this.scena.getProperties("bg8"),
     ];
 
     this.position.map((bg) => console.log(bg));

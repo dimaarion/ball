@@ -2,7 +2,8 @@ import Matter from "matter-js";
 import Scena from "./Scena";
 import Body from "./Body";
 import Animate from "./Animate";
-import Inventory from "./Inventory";
+
+import Action from "./Action";
 export default class Player {
   player = {};
   body = {};
@@ -22,9 +23,10 @@ export default class Player {
   image =
     "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/lvmz-money2.png";
   frame = 1;
+  action = new Action();
   animate = new Animate();
   b = new Body();
-  inventory = new Inventory();
+
   img(p5) {
     this.animate.setup(p5);
     this.animate.animateD(this.image, this.frame);
@@ -33,7 +35,7 @@ export default class Player {
   create(props) {
     //  localStorage.setItem("playerY", "100");
     //   localStorage.setItem("playerX", "1600");
-    this.inventory.create();
+
     this.scena = new Scena(props.scena);
     this.body = this.scena.getObjects("player")[0];
     this.x = this.scena.size(this.body.x + this.body.width / 2);
@@ -144,6 +146,12 @@ export default class Player {
     // Matter.Body.setMass(this.player, 500);
     // Matter.Body.setSpeed(this.player, 3);
     this.animate.params();
-    // p5.image(this.animate.sprite(),this.player.position.x - this.scena.size(this.body.width ) / 2, this.player.position.y - this.scena.size(this.body.width ) / 2, this.scena.size(this.body.width ),this.scena.size(this.body.width ));
+    p5.image(
+      this.animate.sprite(),
+      this.player.position.x - this.scena.size(this.body.width) / 2,
+      this.player.position.y - this.scena.size(this.body.width) / 2,
+      this.scena.size(this.body.width),
+      this.scena.size(this.body.width)
+    );
   }
 }

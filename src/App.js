@@ -9,6 +9,8 @@ import Scena from "./components/Scena";
 import Collide from "./components/Collide";
 import Body from "./components/Body";
 import Map from "./components/Map";
+import Action from "./components/Action";
+import Inventory from "./components/Inventory";
 export default class App extends Component {
   Engine = Matter.Engine;
   Render = Matter.Render;
@@ -26,6 +28,8 @@ export default class App extends Component {
   scena = new Scena(scena1);
   player = new Player();
   body = new Body();
+  action = new Action();
+  inventory = new Inventory();
   map = new Map();
   walls = new Walls({ name: "platform", world: this.world });
 
@@ -51,14 +55,19 @@ export default class App extends Component {
     this.player.create({ scena: scena1, world: this.world });
     this.walls.create({ scena: scena1, world: this.world });
     Matter.World.add(this.world, [this.player.player]);
+    this.inventory.create(this.scena, this.action);
   };
 
   draw = (p5) => {
     p5.background(255);
+
+    p5.push();
     this.player.translates(p5);
     this.map.view(p5);
     this.player.view(p5);
     this.walls.view(p5);
+    p5.pop();
+    this.inventory.view(p5);
   };
 
   keyPressed = (e) => {
@@ -95,7 +104,9 @@ export default class App extends Component {
       this.player.down = 0;
     }
   };
-
+  mousePressed(e) {
+    //this.inventory.press(e);
+  }
   render() {
     return (
       <div
@@ -111,6 +122,7 @@ export default class App extends Component {
           preload={this.preload}
           keyPressed={this.keyPressed}
           keyReleased={this.keyReleased}
+          mousePressed={this.mousePressed}
         />
       </div>
     );

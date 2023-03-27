@@ -28,15 +28,16 @@ export default class Inventory {
     p5.ellipse(this.clX, this.clY, this.clR, this.clR);
   }
 
-  press(e) {
+  pressM(e) {
     /* this.hit = this.collide.collidePointRect(
-      p5.mouseX,
-      p5.mouseY,
+      e.mouseX,
+      e.mouseY,
       this.clX - this.clR / 2,
       this.clY - this.clR / 2,
       this.clR,
       this.clR
-    );*/
+    );
+    console.log(this.clX);*/
   }
 
   view(p5) {

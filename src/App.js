@@ -71,7 +71,6 @@ export default class App extends Component {
   };
 
   keyPressed = (e) => {
-    console.log(e.key);
     if (e.key === "ArrowLeft") {
       this.player.left = 1;
       //  this.player.right = 0;
@@ -105,7 +104,8 @@ export default class App extends Component {
     }
   };
   mousePressed(e) {
-    //this.inventory.press(e);
+    console.log(e);
+    this.inventory.hit = true;
   }
   render() {
     return (

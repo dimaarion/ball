@@ -27,16 +27,16 @@ export default class Player {
   }
 
   create(props) {
-    //  localStorage.setItem("playerY", "20");
-    //  localStorage.setItem("playerX", "1200");
+    //  localStorage.setItem("playerY", "100");
+    //   localStorage.setItem("playerX", "1600");
     console.log(localStorage);
     this.scena = new Scena(props.scena);
     this.body = this.scena.getObjects("player")[0];
     this.x = this.scena.size(this.body.x + this.body.width / 2);
     this.y = this.scena.size(this.body.y + this.body.width / 2);
     if (localStorage.getItem("playerX")) {
-      this.x = Number.parseInt(localStorage.getItem("playerX")) / 4;
-      this.y = Number.parseInt(localStorage.getItem("playerY")) / 4;
+      this.x = Number.parseInt(localStorage.getItem("playerX"));
+      this.y = Number.parseInt(localStorage.getItem("playerY"));
     } else {
       this.y = this.scena.size(this.body.y + this.body.width / 2);
     }

@@ -62,18 +62,38 @@ export default class App extends Component {
   };
 
   keyPressed = (e) => {
+    console.log(e.key);
     if (e.key === "ArrowLeft") {
       this.player.left = 1;
-      this.player.right = 0;
-    } else if (e.key === "ArrowRight") {
+      //  this.player.right = 0;
+    }
+    if (e.key === "ArrowRight") {
       this.player.right = 1;
-      this.player.left = 0;
+      // this.player.left = 0;
+    }
+    if (e.key === "ArrowUp") {
+      this.player.up = 1;
+    }
+    if (e.key === "ArrowDown") {
+      this.player.down = 1;
     }
   };
 
-  keyReleased = () => {
-    this.player.right = 0;
-    this.player.left = 0;
+  keyReleased = (e) => {
+    if (e.key === "ArrowLeft") {
+      this.player.left = 0;
+      //  this.player.right = 0;
+    }
+    if (e.key === "ArrowRight") {
+      this.player.right = 0;
+      // this.player.left = 0;
+    }
+    if (e.key === "ArrowUp") {
+      this.player.up = 0;
+    }
+    if (e.key === "ArrowDown") {
+      this.player.down = 0;
+    }
   };
 
   render() {

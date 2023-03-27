@@ -40,8 +40,8 @@ export default class Scena {
   }
 
   getProperties(name) {
-    if (this.getObject("bg2").properties) {
-      return this.getObject("bg2").properties.map((pos) => pos);
+    if (this.getObject(name).properties) {
+      return this.getObject(name).properties.map((pos) => pos);
     } else {
       return [];
     }

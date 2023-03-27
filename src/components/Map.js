@@ -12,7 +12,6 @@ export default class Map {
     "./asset/scena.png",
     "./asset/scena.png",
   ];
-  position = [{}];
   scena = {};
   animate = new Animate();
   preload(p5) {
@@ -22,20 +21,29 @@ export default class Map {
   }
   create(props) {
     this.scena = new Scena(props);
-    this.animate.setupAnimate();
-    this.position = [this.scena.getObject("bg")];
-    console.log(this.scena.getProperties("bg2")[0].value);
+
+    this.position = [
+      this.scena.getProperties("bg"),
+      this.scena.getProperties("bg2"),
+      this.scena.getProperties("bg3"),
+      this.scena.getProperties("bg4"),
+      this.scena.getProperties("bg5"),
+    ];
+
+    this.position.map((bg) => console.log(bg));
   }
 
   view(p5) {
-    this.animate.params();
-    this.animate.getImage(
-      0,
-      0,
-      this.scena.size(this.scena.scenaWidth),
-      this.scena.size(this.scena.scenaHeigiht),
-      0
+    this.position.map((bg, i) =>
+      this.animate.getImage(
+        this.scena.size(bg[0].value),
+        this.scena.size(bg[1].value),
+        this.scena.size(this.scena.scenaWidth),
+        this.scena.size(this.scena.scenaHeigiht),
+        i
+      )
     );
+
     /*
     p5.image(
       this.animate.getImage(),

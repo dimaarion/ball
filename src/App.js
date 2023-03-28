@@ -35,7 +35,7 @@ export default class App extends Component {
 
   preload = (p5) => {
     this.map.preload(p5);
-    this.player.frame = 6;
+    this.player.frame = 5;
     this.player.image =
       "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/JJrL-swim_to_right_sheet.png";
     this.player.img(p5);
@@ -55,19 +55,18 @@ export default class App extends Component {
     this.player.create({ scena: scena1, world: this.world });
     this.walls.create({ scena: scena1, world: this.world });
     Matter.World.add(this.world, [this.player.player]);
-    //  this.inventory.create(this.scena, this.action);
+   // this.inventory.create(this.scena, this.action);
   };
 
   draw = (p5) => {
     p5.background(255);
-
-    // p5.push();
+   //  p5.push();
     this.player.translates(p5);
     this.map.view(p5);
     this.player.view(p5);
     this.walls.view(p5);
-    // p5.pop();
-    //  this.inventory.view(p5);
+    //p5.pop();
+     // this.inventory.view(p5);
   };
 
   keyPressed = (e) => {

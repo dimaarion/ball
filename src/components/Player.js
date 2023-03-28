@@ -17,25 +17,25 @@ export default class Player {
   left = 0;
   right = 0;
   up = 0;
-  down = 0;
+  down = 6
   mass = 1;
   speed = 3;
   friction = 1;
   image =
-    "https://uploads.codesandbox.io/uploads/user/f0ec9a1a-dbb6-4f1c-875a-49dd16e23056/lvmz-money2.png";
+    "..asset/scena.png";
   frame = 1;
-  action = new Action();
   animate = new Animate();
   b = new Body();
 
   img(p5) {
-    this.animate.setup(p5);
-    this.animate.animateD(this.image, this.frame);
+     this.animate.setup(p5);
+    this.animate.animateD(this.image,this.frame);
+  // p5.loadImage("../asset")
   }
 
   create(props) {
-    //  localStorage.setItem("playerY", "100");
-    //   localStorage.setItem("playerX", "1600");
+      localStorage.setItem("playerY", "100");
+       localStorage.setItem("playerX", "1600");
 
     this.scena = new Scena(props.scena);
     this.body = this.scena.getObjects("player")[0];
@@ -146,7 +146,9 @@ export default class Player {
     // Matter.Body.setMass(this.player, 500);
     // Matter.Body.setSpeed(this.player, 3);
     this.animate.params();
-    p5.image(
+    //console.log(this.animate.sprite())
+   // this.animate.draw()
+   p5.image(
       this.animate.sprite(),
       this.player.position.x - this.scena.size(this.body.width) / 2,
       this.player.position.y - this.scena.size(this.body.width) / 2,

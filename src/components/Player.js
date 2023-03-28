@@ -59,7 +59,6 @@ export default class Player {
     );
     Matter.World.add(props.world, this.player);
     this.animate.setupAnimate();
-    console.log(this.player);
   }
   translates(p5) {
     p5.translate(
